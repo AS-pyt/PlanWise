@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Productivity – Minimal UI</title>
+  <style>
+    :root {
+      --bg: #f7fafc;
+      --card: #ffffff;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --soft-1: #e9f5ff;
+      --soft-2: #fff7e6;
+      --soft-3: #eefcf3;
+      --soft-4: #fff0f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    header {
+      display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 18px;
+    }
+    .brand { font-weight: 700; font-size: 20px; letter-spacing: 0.2px; }
+    nav { display: flex; gap: 8px; flex-wrap: wrap; }
+    nav a {
+      text-decoration: none; color: var(--ink); background: var(--card);
+      border: 1px solid var(--line); padding: 8px 12px; border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .grid { display: grid; gap: 16px; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    @media (min-width: 900px) {
+      .grid-2 { grid-template-columns: 2fr 1fr; }
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px; padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .card.soft-1 { background: var(--soft-1); }
+    .card.soft-2 { background: var(--soft-2); }
+    .card.soft-3 { background: var(--soft-3); }
+    .card.soft-4 { background: var(--soft-4); }
+
+    .section-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+    .title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+    h2 { font-size: 18px; margin: 0; }
+
+    .list { list-style: none; margin: 0; padding: 0; }
+    .list li {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      padding: 10px 12px; background: #fafafa; border: 1px dashed var(--line);
+      border-radius: 12px; margin-bottom: 8px;
+    }
+    .row { display: flex; align-items: center; gap: 10px; }
+    .handle { width: 18px; height: 18px; border-radius: 6px; background: var(--line); }
+
+    .kpi { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    @media (min-width: 700px) { .kpi { grid-template-columns: repeat(4, 1fr); } }
+    .kpi .item { text-align: center; padding: 12px; border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(180deg, #fff, #f9fafb); }
+    .kpi .label { font-size: 12px; color: var(--muted); }
+    .kpi .value { font-size: 22px; font-weight: 700; }
+
+    .button { padding: 10px 14px; border-radius: 12px; background: #fff; border: 1px solid var(--line); box-shadow: 0 1px 3px rgba(0,0,0,0.06); cursor: default; }
+    .button.block { width: 100%; text-align: center; }
+
+    .upload-area { border: 2px dashed #d1d5db; border-radius: 16px; background: #fbfbfb; padding: 24px; text-align: center; }
+
+    .pill { font-size: 12px; padding: 4px 10px; border-radius: 999px; background: #f3f4f6; border: 1px solid var(--line); }
+    .priority-high { background: #fee2e2; }
+    .priority-med  { background: #fef3c7; }
+    .priority-low  { background: #e5f7ee; }
+
+    .board { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    @media (min-width: 900px) { .board { grid-template-columns: repeat(3, 1fr); } }
+    .col-title { font-weight: 600; margin-bottom: 8px; }
+
+    .two-col { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 900px) { .two-col { grid-template-columns: 1fr 1fr; } }
+
+    footer { color: var(--muted); font-size: 12px; text-align: center; padding: 24px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">PlanWise – Student Suite</div>
+      <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#planner">Smart Planner</a>
+        <a href="#summarizer">Summarizer</a>
+        <a href="#tracker">Tasks</a>
+        <a href="#later">Optional</a>
+      </nav>
+    </header>
+
+    <!-- 1. Home / Dashboard -->
+    <section id="dashboard" class="grid grid-2" aria-labelledby="dashboard-title">
+      <div class="card">
+        <div class="section-title" id="dashboard-title">Home / Dashboard</div>
+        <div class="title-row"><h2>Today’s Plan</h2><span class="pill">Mon</span></div>
+        <ul class="list" aria-label="Today’s tasks">
+          <li>
+            <div class="row"><span class="handle" aria-hidden="true"></span>Read Physics – Kinematics (30m)</div>
+            <span class="pill priority-med">Due Today</span>
+          </li>
+          <li>
+            <div class="row"><span class="handle" aria-hidden="true"></span>Math Practice – Quadratic Equations (45m)</div>
+            <span class="pill priority-low">Optional</span>
+          </li>
+          <li>
+            <div class="row"><span class="handle" aria-hidden="true"></span>Chemistry Notes – Chemical Bonding (20m)</div>
+            <span class="pill priority-high">Priority</span>
+          </li>
+        </ul>
+      </div>
+
+      <aside class="grid grid-3">
+        <div class="card soft-2">
+          <div class="section-title">Upcoming Exams / Deadlines</div>
+          <ul class="list" aria-label="Upcoming deadlines">
+            <li>
+              <div>Physics Midterm</div>
+              <div class="pill countdown" aria-label="countdown">12d : 04h</div>
+            </li>
+            <li>
+              <div>English Essay</div>
+              <div class="pill countdown">05d : 18h</div>
+            </li>
+            <li>
+              <div>Math Quiz</div>
+              <div class="pill countdown">02d : 09h</div>
+            </li>
+          </ul>
+        </div>
+        <div class="card soft-1">
+          <div class="section-title">Quick Upload</div>
+          <div class="upload-area" role="button" aria-label="Upload notes">
+            <strong>Drop notes / PDFs / slides here</strong>
+            <div class="muted" style="color: var(--muted); font-size: 12px; margin-top: 6px;">(UI only)</div>
+          </div>
+          <div style="height:8px"></div>
+          <button class="button block">Upload</button>
+        </div>
+        <div class="card soft-3">
+          <div class="section-title">Performance Summary</div>
+          <div class="kpi">
+            <div class="item"><div class="label">Topics Completed</div><div class="value">12</div></div>
+            <div class="item"><div class="label">Hours Studied</div><div class="value">6.5</div></div>
+            <div class="item"><div class="label">Tasks Pending</div><div class="value">4</div></div>
+            <div class="item"><div class="label">Streak (days)</div><div class="value">3</div></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <div style="height:20px"></div>
+
+    <!-- 2. Smart Revision Planner -->
+    <section id="planner" class="card" aria-labelledby="planner-title">
+      <div class="section-title" id="planner-title">Smart Revision Planner</div>
+      <div class="two-col">
+        <div>
+          <h2 style="margin-top:0">Inputs</h2>
+          <div class="grid" style="gap:10px">
+            <label class="row" style="justify-content: space-between;">
+              <span>Exam Date(s)</span>
+              <input type="date" style="border:1px solid var(--line); border-radius:10px; padding:8px; background:#fff;" />
+            </label>
+            <label class="row" style="justify-content: space-between;">
+              <span>Subject</span>
+              <input type="text" placeholder="e.g., Physics" style="border:1px solid var(--line); border-radius:10px; padding:8px; width: 220px;" />
+            </label>
+            <label class="row" style="justify-content: space-between;">
+              <span>Topics</span>
+              <input type="text" placeholder="Kinematics, Optics…" style="border:1px solid var(--line); border-radius:10px; padding:8px; width: 220px;" />
+            </label>
+            <label class="row" style="justify-content: space-between;">
+              <span>Hours / Day</span>
+              <input type="number" min="0" step="0.5" placeholder="2" style="border:1px solid var(--line); border-radius:10px; padding:8px; width: 120px;" />
+            </label>
+            <button class="button">Generate Plan (UI)</button>
+          </div>
+        </div>
+        <div>
+          <h2 style="margin-top:0">Daily Schedule</h2>
+          <ul class="list" aria-label="Generated schedule">
+            <li>
+              <div class="row"><span class="handle" aria-hidden="true"></span>Day 1 – Kinematics (1h)</div>
+              <span class="pill">Revision</span>
+            </li>
+            <li>
+              <div class="row"><span class="handle" aria-hidden="true"></span>Day 2 – Optics (1h)</div>
+              <span class="pill">Practice</span>
+            </li>
+            <li>
+              <div class="row"><span class="handle" aria-hidden="true"></span>Day 3 – Waves (1h)</div>
+              <span class="pill">Review</span>
+            </li>
+          </ul>
+          <div class="section-title" style="margin-top:10px">Smart Reminders</div>
+          <div class="list">
+            <div class="row" style="justify-content: space-between; padding:10px 12px; background:#fafafa; border:1px dashed var(--line); border-radius:12px;">
+              <div class="row"><span class="handle" aria-hidden="true"></span>Revisit weak topics in 2 days</div>
+              <span class="pill">Planned</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div style="height:20px"></div>
+
+    <!-- 3. Content Summarizer -->
+    <section id="summarizer" class="card" aria-labelledby="summ-title">
+      <div class="section-title" id="summ-title">Content Summarizer</div>
+      <div class="two-col">
+        <div>
+          <h2 style="margin-top:0">Upload</h2>
+          <div class="upload-area" aria-label="File upload">
+            <strong>Select or drop file</strong>
+            <div class="muted" style="color: var(--muted); font-size: 12px; margin-top: 6px;">PDF / PPT / Notes (UI only)</div>
+          </div>
+          <div style="height:8px"></div>
+          <label class="row" style="justify-content: space-between;">
+            <span>Chapters / Topics</span>
+            <input type="text" placeholder="e.g., Ch 3–5" style="border:1px solid var(--line); border-radius:10px; padding:8px; width: 180px;" />
+          </label>
+          <button class="button" style="margin-top:8px;">Summarize (UI)</button>
+        </div>
+        <div>
+          <h2 style="margin-top:0">Summary Preview</h2>
+          <div class="card" style="padding:12px;">
+            <ul class="list">
+              <li><div>• Key Point 1 – One-line takeaway</div></li>
+              <li><div>• Key Point 2 – Important definition</div></li>
+              <li><div>• Key Point 3 – Formula / concept</div></li>
+            </ul>
+            <div style="height:8px"></div>
+            <div class="row" style="gap:8px; flex-wrap: wrap;">
+              <span class="pill">Flashcards (AI)</span>
+              <span class="pill">Quiz Questions (AI)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div style="height:20px"></div>
+
+    <!-- 4. Task & Deadline Tracker -->
+    <section id="tracker" aria-labelledby="tracker-title">
+      <div class="section-title" id="tracker-title">Task & Deadline Tracker</div>
+      <div class="board">
+        <div class="card">
+          <div class="col-title">To Do</div>
+          <ul class="list">
+            <li>
+              <div class="row"><span class="handle" aria-hidden="true"></span>Finish Chemistry worksheet</div>
+              <span class="pill priority-high">High</span>
+            </li>
+            <li>
+              <div class="row"><span class="handle" aria-hidden="true"></span>History timeline draft</div>
+              <span class="pill priority-med">Medium</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="col-title">In Progress</div>
+          <ul class="list">
+            <li>
+              <div class="row"><span class="handle" aria-hidden="true"></span>Math assignment – Q1–5</div>
+              <span class="pill priority-med">Medium</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="col-title">Done</div>
+          <ul class="list">
+            <li>
+              <div class="row"><span class="handle" aria-hidden="true"></span>English reading – Act II</div>
+              <span class="pill priority-low">Low</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div style="height:12px"></div>
+      <div class="card soft-4">
+        <div class="row" style="justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+          <div class="row" style="gap:8px;">
+            <span class="pill">Auto-import (Google Calendar)</span>
+            <span class="pill">Email / Push Alerts</span>
+          </div>
+          <div class="row" style="gap:8px;">
+            <button class="button">Add Task</button>
+            <button class="button">Add Exam</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div style="height:20px"></div>
+
+    <!-- 5. Optional Features for Later -->
+    <section id="later" class="grid grid-3" aria-labelledby="later-title">
+      <div class="card">
+        <div class="section-title" id="later-title">Optional Features</div>
+        <h2 style="margin-top:0">AI Study Buddy</h2>
+        <p style="margin-top:0; color: var(--muted);">Ask questions from your notes/summary.</p>
+        <div class="card" style="padding:12px;">
+          <div class="row" style="gap:8px; flex-wrap: wrap;">
+            <span class="pill">Chat from Notes</span>
+            <span class="pill">Cite Sources</span>
+            <span class="pill">Follow-up Prompts</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h2 style="margin-top:0">Analytics</h2>
+        <p style="margin-top:0; color: var(--muted);">Track progress, revision patterns, weak areas.</p>
+        <div class="kpi">
+          <div class="item"><div class="label">Focus Avg (min)</div><div class="value">38</div></div>
+          <div class="item"><div class="label">Rev. Sessions</div><div class="value">7</div></div>
+          <div class="item"><div class="label">Weak Topics</div><div class="value">2</div></div>
+          <div class="item"><div class="label">Goal Hit %</div><div class="value">72%</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2 style="margin-top:0">Mobile Push</h2>
+        <p style="margin-top:0; color: var(--muted);">Lightweight alerts for tasks & revisions.</p>
+        <div class="row" style="gap:8px;">
+          <span class="pill">Daily Digest</span>
+          <span class="pill">Quiet Hours</span>
+          <span class="pill">Snooze</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      UI only, no functionality. Keep it simple, calm, and minimal.
+    </footer>
+  </div>
+</body>
+</html>
