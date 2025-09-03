@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlanWise – Tasks & Deadlines</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">PlanWise</div>
+      <nav class="top">
+        <a href="index.html">Dashboard</a>
+        <a href="planner.html">Smart Planner</a>
+        <a href="summarizer.html">Summarizer</a>
+        <a href="tasks.html">Tasks</a>
+      </nav>
+    </header>
+
+    <section aria-labelledby="tracker-title">
+      <div class="section-title" id="tracker-title">Task & Deadline Tracker</div>
+      <div class="board">
+        <div class="card">
+          <div class="col-title">To Do</div>
+          <ul class="list">
+            <li><div class="row"><span class="handle" aria-hidden="true"></span>Finish Chemistry worksheet</div><span class="pill priority-high">High</span></li>
+            <li><div class="row"><span class="handle" aria-hidden="true"></span>History timeline draft</div><span class="pill priority-med">Medium</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="col-title">In Progress</div>
+          <ul class="list">
+            <li><div class="row"><span class="handle" aria-hidden="true"></span>Math assignment – Q1–5</div><span class="pill priority-med">Medium</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="col-title">Done</div>
+          <ul class="list">
+            <li><div class="row"><span class="handle" aria-hidden="true"></span>English reading – Act II</div><span class="pill priority-low">Low</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="height:12px"></div>
+      <div class="card soft-4">
+        <div class="row" style="justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+          <div class="row" style="gap:8px;">
+            <span class="pill">Auto-import (Google Calendar)</span>
+            <span class="pill">Email / Push Alerts</span>
+          </div>
+          <div class="row" style="gap:8px;">
+            <button class="button">Add Task</button>
+            <button class="button">Add Exam</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <nav class="bottom-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="planner.html">Planner</a>
+    <a href="summarizer.html">Summarizer</a>
+    <a href="tasks.html">Tasks</a>
+  </nav>
+  <script src="script.js"></script>
+</body>
+</html>

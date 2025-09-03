@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlanWise – Smart Planner</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">PlanWise</div>
+      <nav class="top">
+        <a href="index.html">Dashboard</a>
+        <a href="planner.html">Smart Planner</a>
+        <a href="summarizer.html">Summarizer</a>
+        <a href="tasks.html">Tasks</a>
+      </nav>
+    </header>
+
+    <section class="card" aria-labelledby="planner-title">
+      <div class="section-title" id="planner-title">Smart Revision Planner</div>
+      <div class="two-col">
+        <div>
+          <h1 style="margin-top:0">Inputs</h1>
+          <div class="grid" style="gap:10px">
+            <label class="row" style="justify-content: space-between;">
+              <span>Exam Date(s)</span>
+              <input type="date" style="border:1px solid var(--line); border-radius:10px; padding:8px; background:#fff;" />
+            </label>
+            <label class="row" style="justify-content: space-between;">
+              <span>Subject</span>
+              <input type="text" placeholder="e.g., Physics" style="border:1px solid var(--line); border-radius:10px; padding:8px; width: 220px;" />
+            </label>
+            <label class="row" style="justify-content: space-between;">
+              <span>Topics</span>
+              <input type="text" placeholder="Kinematics, Optics…" style="border:1px solid var(--line); border-radius:10px; padding:8px; width: 220px;" />
+            </label>
+            <label class="row" style="justify-content: space-between;">
+              <span>Hours / Day</span>
+              <input type="number" min="0" step="0.5" placeholder="2" style="border:1px solid var(--line); border-radius:10px; padding:8px; width: 120px;" />
+            </label>
+            <button class="button">Generate Plan (UI)</button>
+          </div>
+        </div>
+        <div>
+          <h2 style="margin-top:0">Daily Schedule</h2>
+          <ul class="list" aria-label="Generated schedule">
+            <li><div class="row"><span class="handle" aria-hidden="true"></span>Day 1 – Kinematics (1h)</div><span class="pill">Revision</span></li>
+            <li><div class="row"><span class="handle" aria-hidden="true"></span>Day 2 – Optics (1h)</div><span class="pill">Practice</span></li>
+            <li><div class="row"><span class="handle" aria-hidden="true"></span>Day 3 – Waves (1h)</div><span class="pill">Review</span></li>
+          </ul>
+          <div class="section-title" style="margin-top:10px">Smart Reminders</div>
+          <div class="list">
+            <div class="row" style="justify-content: space-between; padding:10px 12px; background:#fafafa; border:1px dashed var(--line); border-radius:12px;">
+              <div class="row"><span class="handle" aria-hidden="true"></span>Revisit weak topics in 2 days</div>
+              <span class="pill">Planned</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <nav class="bottom-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="planner.html">Planner</a>
+    <a href="summarizer.html">Summarizer</a>
+    <a href="tasks.html">Tasks</a>
+  </nav>
+  <script src="script.js"></script>
+</body>
+</html>
