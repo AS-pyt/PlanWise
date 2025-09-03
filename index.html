@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlanWise – Home / Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <body class="dark-home">
+
+  <div class="wrap">
+    <header>
+      <div class="brand">PlanWise</div>
+      <nav class="top">
+        <a href="index.html">Dashboard</a>
+        <a href="planner.html">Smart Planner</a>
+        <a href="summarizer.html">Summarizer</a>
+        <a href="tasks.html">Tasks</a>
+      </nav>
+    </header>
+
+    <section class="grid grid-2" aria-labelledby="dashboard-title">
+      <div class="card">
+        <div class="section-title" id="dashboard-title">Home / Dashboard</div>
+        <div class="title-row"><h1>Today’s Plan</h1><span class="pill">Mon</span></div>
+        <ul class="list" aria-label="Today’s tasks">
+          <li>
+            <div class="row"><span class="handle" aria-hidden="true"></span>Read Physics – Kinematics (30m)</div>
+            <span class="pill priority-med">Due Today</span>
+          </li>
+          <li>
+            <div class="row"><span class="handle" aria-hidden="true"></span>Math Practice – Quadratic Equations (45m)</div>
+            <span class="pill priority-low">Optional</span>
+          </li>
+          <li>
+            <div class="row"><span class="handle" aria-hidden="true"></span>Chemistry Notes – Chemical Bonding (20m)</div>
+            <span class="pill priority-high">Priority</span>
+          </li>
+        </ul>
+      </div>
+
+      <aside class="grid grid-3">
+        <div class="card soft-2">
+          <div class="section-title">Upcoming Exams / Deadlines</div>
+          <ul class="list" aria-label="Upcoming deadlines">
+            <li><div>Physics Midterm</div><div class="pill">12d : 04h</div></li>
+            <li><div>English Essay</div><div class="pill">05d : 18h</div></li>
+            <li><div>Math Quiz</div><div class="pill">02d : 09h</div></li>
+          </ul>
+        </div>
+        <div class="card soft-1">
+          <div class="section-title">Quick Upload</div>
+          <div class="upload-area" role="button" aria-label="Upload notes">
+            <strong>Drop notes / PDFs / slides here</strong>
+            <div class="muted" style="color: var(--muted); font-size: 12px; margin-top: 6px;">(UI only)</div>
+          </div>
+          <div style="height:8px"></div>
+          <button class="button block">Upload</button>
+        </div>
+        <div class="card soft-3">
+          <div class="section-title">Performance Summary</div>
+          <div class="kpi">
+            <div class="item"><div class="label">Topics Completed</div><div class="value">12</div></div>
+            <div class="item"><div class="label">Hours Studied</div><div class="value">6.5</div></div>
+            <div class="item"><div class="label">Tasks Pending</div><div class="value">4</div></div>
+            <div class="item"><div class="label">Streak (days)</div><div class="value">3</div></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+    <div style="height:20px"></div>
+    <section class="grid grid-3">
+      <div class="card">
+        <div class="section-title">Optional Features</div>
+        <h2 style="margin-top:0">AI Study Buddy</h2>
+        <p style="margin-top:0; color: var(--muted);">Ask questions from your notes/summary.</p>
+        <div class="card" style="padding:12px;">
+          <div class="row" style="gap:8px; flex-wrap: wrap;">
+            <span class="pill">Chat from Notes</span>
+            <span class="pill">Cite Sources</span>
+            <span class="pill">Follow-up Prompts</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h2 style="margin-top:0">Analytics</h2>
+        <p style="margin-top:0; color: var(--muted);">Track progress, revision patterns, weak areas.</p>
+        <div class="kpi">
+          <div class="item"><div class="label">Focus Avg (min)</div><div class="value">38</div></div>
+          <div class="item"><div class="label">Rev. Sessions</div><div class="value">7</div></div>
+          <div class="item"><div class="label">Weak Topics</div><div class="value">2</div></div>
+          <div class="item"><div class="label">Goal Hit %</div><div class="value">72%</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2 style="margin-top:0">Mobile Push</h2>
+        <p style="margin-top:0; color: var(--muted);">Lightweight alerts for tasks & revisions.</p>
+        <div class="row" style="gap:8px;">
+          <span class="pill">Daily Digest</span>
+          <span class="pill">Quiet Hours</span>
+          <span class="pill">Snooze</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <nav class="bottom-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="planner.html">Planner</a>
+    <a href="summarizer.html">Summarizer</a>
+    <a href="tasks.html">Tasks</a>
+  </nav>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+:root {
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --soft-1: #e9f5ff;
+  --soft-2: #fff7e6;
+  --soft-3: #eefcf3;
+  --soft-4: #fff0f0;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+  padding-bottom: 68px; /* space for bottom nav */
+}
+.wrap { max-width: 1200px; margin: 0 auto; padding: 24px; }
+header {
+  display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 18px;
+}
+.brand { font-weight: 800; font-size: 20px; letter-spacing: 0.2px; }
+nav.top { display: flex; gap: 8px; flex-wrap: wrap; }
+nav.top a {
+  text-decoration: none; color: var(--ink); background: var(--card);
+  border: 1px solid var(--line); padding: 8px 12px; border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.grid { display: grid; gap: 16px; }
+.grid-2 { grid-template-columns: 1fr; }
+.grid-3 { grid-template-columns: 1fr; }
+@media (min-width: 900px) {
+  .grid-2 { grid-template-columns: 2fr 1fr; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px; padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.card.soft-1 { background: var(--soft-1); }
+.card.soft-2 { background: var(--soft-2); }
+.card.soft-3 { background: var(--soft-3); }
+.card.soft-4 { background: var(--soft-4); }
+
+.section-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+.title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+h1 { font-size: 24px; margin: 0 0 6px; }
+h2 { font-size: 18px; margin: 0; }
+
+.list { list-style: none; margin: 0; padding: 0; }
+.list li {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 10px 12px; background: #fafafa; border: 1px dashed var(--line);
+  border-radius: 12px; margin-bottom: 8px;
+}
+.row { display: flex; align-items: center; gap: 10px; }
+.handle { width: 18px; height: 18px; border-radius: 6px; background: var(--line); }
+
+.kpi { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (min-width: 700px) { .kpi { grid-template-columns: repeat(4, 1fr); } }
+.kpi .item { text-align: center; padding: 12px; border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(180deg, #fff, #f9fafb); }
+.kpi .label { font-size: 12px; color: var(--muted); }
+.kpi .value { font-size: 22px; font-weight: 700; }
+
+.button { padding: 10px 14px; border-radius: 12px; background: #fff; border: 1px solid var(--line); box-shadow: 0 1px 3px rgba(0,0,0,0.06); cursor: default; }
+.button.block { width: 100%; text-align: center; }
+
+.upload-area { border: 2px dashed #d1d5db; border-radius: 16px; background: #fbfbfb; padding: 24px; text-align: center; }
+
+.pill { font-size: 12px; padding: 4px 10px; border-radius: 999px; background: #f3f4f6; border: 1px solid var(--line); white-space: nowrap; }
+.priority-high { background: #fee2e2; }
+.priority-med  { background: #fef3c7; }
+.priority-low  { background: #e5f7ee; }
+
+.board { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 900px) { .board { grid-template-columns: repeat(3, 1fr); } }
+.col-title { font-weight: 600; margin-bottom: 8px; }
+
+.two-col { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 900px) { .two-col { grid-template-columns: 1fr 1fr; } }
+
+footer { color: var(--muted); font-size: 12px; text-align: center; padding: 24px; }
+
+/* Bottom nav */
+.bottom-nav {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  background: var(--card);
+  border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; height: 56px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+}
+.bottom-nav a {
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; color: var(--ink);
+  font-weight: 600; font-size: 13px;
+}
+.bottom-nav a.active {
+  background: #f3f4f6;
+}
+/* ==== Dark Futuristic Theme for Home Page ==== */
+body.dark-home {
+  --bg: #0d0f1a;
+  --card: #1a1d2b;
+  --ink: #e4e7f8;
+  --muted: #8a8fbd;
+  --line: #2a2f45;
+
+  /* optional: futuristic gradient background */
+  background: linear-gradient(135deg, #0d0f1a 0%, #14182b 100%);
+  color: var(--ink);
+}
+
+body.dark-home header,
+body.dark-home .card {
+  background: var(--card);
+  border-color: var(--line);
+  box-shadow: 0 0 12px rgba(0, 200, 255, 0.2);
+}
+
+body.dark-home .brand {
+  color: #00eaff;
+  text-shadow: 0 0 6px rgba(0, 234, 255, 0.8);
+}
+
+body.dark-home nav.top a,
+body.dark-home .bottom-nav a {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+body.dark-home .bottom-nav a.active {
+  background: #00eaff;
+  color: #0d0f1a;
+}
+
+body.dark-home .section-title {
+  color: #00eaff;
+}
+
+body.dark-home .pill {
+  background: #1f2235;
+  border: 1px solid #00eaff;
+  color: #00eaff;
+}
+
+body.dark-home .kpi .item {
+  background: linear-gradient(180deg, #1a1d2b, #14182b);
+  border-color: #00eaff;
+}
+
+body.dark-home .button {
+  background: #14182b;
+  border-color: #00eaff;
+  color: #00eaff;
+  box-shadow: 0 0 10px rgba(0, 234, 255, 0.2);
+}
